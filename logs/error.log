@@ -1,0 +1,8 @@
+GET /admin/acl/index/info 401 23 - 17.090 ms
+GET /admin/acl/index/menu 401 23 - 10.941 ms
+GET /%3Canonymous%3E 401 23 - 0.647 ms
+GET /%3Canonymous%3E 401 23 - 0.324 ms
+GET /%3Canonymous%3E 401 23 - 0.260 ms
+GET /reset 401 23 - 3.207 ms
+GET /favicon.ico 401 23 - 0.358 ms
+GET /favicon.ico 401 23 - 1.307 ms

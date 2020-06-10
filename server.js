@@ -22,6 +22,7 @@ const roleRouter = require("./routers/acl/role");
 const permissionRouter = require("./routers/acl/permission");
 const teacherRouter = require("./routers/edu/teacher");
 const subjectRouter = require("./routers/edu/subject");
+const resetRouter = require("./routers/reset");
 
 const app = express();
 
@@ -53,6 +54,8 @@ app.use(
   })
 );
 
+// 重置数据~
+app.use(resetRouter);
 // 使用中间件
 // app.use(cors);
 app.use(acl);
