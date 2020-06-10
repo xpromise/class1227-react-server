@@ -1,5 +1,205 @@
 define({ "api": [
   {
+    "type": "delete",
+    "url": "/admin/edu/chapter/batchRemove",
+    "title": "批量删除多个章节",
+    "description": "<p>批量删除多个章节</p>",
+    "name": "batchRemove",
+    "group": "chapter-admin-controller:_章节管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "idList",
+            "description": "<p>章节id列表</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/chapter/batchRemove"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "chapter-admin-controller:_章节管理"
+  },
+  {
+    "type": "get",
+    "url": "/admin/edu/chapter/:page/:limit",
+    "title": "获取章节分页列表",
+    "description": "<p>获取章节分页列表</p>",
+    "name": "get",
+    "group": "chapter-admin-controller:_章节管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>当前页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>每页数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "courceId",
+            "description": "<p>课程id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>章节数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/chapter/:page/:limit"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "chapter-admin-controller:_章节管理"
+  },
+  {
+    "type": "delete",
+    "url": "/admin/edu/chapter/remove/:chapterId",
+    "title": "删除章节",
+    "description": "<p>删除章节</p>",
+    "name": "remove",
+    "group": "chapter-admin-controller:_章节管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chapterId",
+            "description": "<p>章节id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/chapter/remove/:chapterId"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "chapter-admin-controller:_章节管理"
+  },
+  {
     "type": "post",
     "url": "/admin/edu/chapter/save",
     "title": "新增章节",
@@ -62,6 +262,75 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "http://47.103.203.152/admin/edu/chapter/save"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "chapter-admin-controller:_章节管理"
+  },
+  {
+    "type": "put",
+    "url": "/admin/edu/chapter/update",
+    "title": "更新章节",
+    "description": "<p>更新章节</p>",
+    "name": "update",
+    "group": "chapter-admin-controller:_章节管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chapterId",
+            "description": "<p>章节id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>章节标题</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/chapter/update"
       }
     ],
     "version": "1.0.0",
@@ -134,75 +403,6 @@ define({ "api": [
       }
     ],
     "version": "1.0.0",
-    "filename": "routers/edu/chapter.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
-  },
-  {
-    "type": "get",
-    "url": "/admin/edu/cource/:page/:limit",
-    "title": "获取课程分页列表",
-    "description": "<p>获取课程分页列表</p>",
-    "name": "get",
-    "group": "cource-admin-controller:_课程管理",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>权限令牌</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "page",
-            "description": "<p>当前页码</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "limit",
-            "description": "<p>每页数量</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>课程数据</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "http://47.103.203.152/admin/edu/cource/:page/:limit"
-      }
-    ],
-    "version": "1.0.0",
     "filename": "routers/edu/course.js",
     "groupTitle": "cource-admin-controller:_课程管理"
   },
@@ -252,118 +452,7 @@ define({ "api": [
       }
     ],
     "version": "1.0.0",
-    "filename": "routers/edu/chapter.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
-  },
-  {
-    "type": "get",
-    "url": "/admin/edu/cource",
-    "title": "获取所有课程列表",
-    "description": "<p>获取所有课程列表</p>",
-    "name": "getall",
-    "group": "cource-admin-controller:_课程管理",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>权限令牌</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>课程数据</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "http://47.103.203.152/admin/edu/cource"
-      }
-    ],
-    "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
-  },
-  {
-    "type": "put",
-    "url": "/admin/edu/cource/publish",
-    "title": "发布课程",
-    "description": "<p>发布课程</p>",
-    "name": "publish",
-    "group": "cource-admin-controller:_课程管理",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>权限令牌</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "courceId",
-            "description": "<p>课程id</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>课程数据</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "http://47.103.203.152/admin/edu/cource/publish"
-      }
-    ],
-    "version": "1.0.0",
-    "filename": "routers/edu/chapter.js",
     "groupTitle": "cource-admin-controller:_课程管理"
   },
   {
@@ -537,124 +626,6 @@ define({ "api": [
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
-  },
-  {
-    "type": "put",
-    "url": "/admin/edu/cource/update",
-    "title": "更新课程",
-    "description": "<p>更新课程</p>",
-    "name": "update",
-    "group": "cource-admin-controller:_课程管理",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>权限令牌</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "courceId",
-            "description": "<p>课程id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "teacherId",
-            "description": "<p>可选，讲师id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "subjectId",
-            "description": "<p>可选，课程分类id</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "subjectParentId",
-            "description": "<p>可选，父级课程分类id(0代表一级分类)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>可选，课程名称</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "price",
-            "description": "<p>可选，课程价格（0代表免费）</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "lessonNum",
-            "description": "<p>可选，课程总课时</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "description",
-            "description": "<p>可选，课程简介</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "cover",
-            "description": "<p>可选，课程图片</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>课程数据</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "http://47.103.203.152/admin/edu/cource/update"
-      }
-    ],
-    "version": "1.0.0",
-    "filename": "routers/edu/chapter.js",
     "groupTitle": "cource-admin-controller:_课程管理"
   },
   {
@@ -980,6 +951,358 @@ define({ "api": [
     "version": "1.0.0",
     "filename": "routers/acl/login.js",
     "groupTitle": "index-controller:_后台登录与权限管理"
+  },
+  {
+    "type": "delete",
+    "url": "/admin/edu/lesson/batchRemove",
+    "title": "批量删除多个课时",
+    "description": "<p>批量删除多个课时</p>",
+    "name": "batchRemove",
+    "group": "lesson-admin-controller:_课时管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "idList",
+            "description": "<p>课时id列表</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/lesson/batchRemove"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/lesson.js",
+    "groupTitle": "lesson-admin-controller:_课时管理"
+  },
+  {
+    "type": "get",
+    "url": "/admin/edu/lesson/get/:chapterId",
+    "title": "获取章节所有课时列表",
+    "description": "<p>获取章节所有课时列表</p>",
+    "name": "get",
+    "group": "lesson-admin-controller:_课时管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chapterId",
+            "description": "<p>章节id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/lesson/get/:chapterId"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/lesson.js",
+    "groupTitle": "lesson-admin-controller:_课时管理"
+  },
+  {
+    "type": "delete",
+    "url": "/admin/edu/lesson/remove/:lessonId",
+    "title": "删除课时",
+    "description": "<p>删除课时</p>",
+    "name": "remove",
+    "group": "lesson-admin-controller:_课时管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lessonId",
+            "description": "<p>课时id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/lesson/remove/:lessonId"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/lesson.js",
+    "groupTitle": "lesson-admin-controller:_课时管理"
+  },
+  {
+    "type": "post",
+    "url": "/admin/edu/lesson/save",
+    "title": "新增课时",
+    "description": "<p>新增课时</p>",
+    "name": "save",
+    "group": "lesson-admin-controller:_课时管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "chapterId",
+            "description": "<p>章节id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>课时名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "free",
+            "description": "<p>是否免费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "video",
+            "description": "<p>视频路径</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/lesson/save"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/lesson.js",
+    "groupTitle": "lesson-admin-controller:_课时管理"
+  },
+  {
+    "type": "put",
+    "url": "/admin/edu/lesson/update",
+    "title": "更新课时",
+    "description": "<p>更新课时</p>",
+    "name": "update",
+    "group": "lesson-admin-controller:_课时管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lessonId",
+            "description": "<p>课时id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>课时标题</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "free",
+            "description": "<p>是否免费</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "video",
+            "description": "<p>视频路径</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/lesson/update"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/lesson.js",
+    "groupTitle": "lesson-admin-controller:_课时管理"
   },
   {
     "type": "get",

@@ -16,13 +16,14 @@ const cors = require("./middlleware/cors");
 const acl = require("./middlleware/acl");
 
 // 引入路由
+const resetRouter = require("./routers/reset");
 const loginRouter = require("./routers/acl/login");
 const userRouter = require("./routers/acl/user");
 const roleRouter = require("./routers/acl/role");
 const permissionRouter = require("./routers/acl/permission");
 const teacherRouter = require("./routers/edu/teacher");
 const subjectRouter = require("./routers/edu/subject");
-const resetRouter = require("./routers/reset");
+const chapterRouter = require("./routers/edu/chapter");
 
 const app = express();
 
@@ -71,6 +72,7 @@ app.use("/admin/acl/role", roleRouter);
 app.use("/admin/acl/permission", permissionRouter);
 app.use("/admin/edu/teacher", teacherRouter);
 app.use("/admin/edu/subject", subjectRouter);
+app.use("/admin/edu/chapter", chapterRouter);
 
 app.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, (err) => {
   if (!err)
