@@ -6,3 +6,5 @@ GET /%3Canonymous%3E 401 23 - 0.260 ms
 GET /reset 401 23 - 3.207 ms
 GET /favicon.ico 401 23 - 0.358 ms
 GET /favicon.ico 401 23 - 1.307 ms
+GET / 401 23 - 3.370 ms
+GET /favicon.ico 401 23 - 0.309 ms

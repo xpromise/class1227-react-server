@@ -21,3 +21,7 @@
 127.0.0.1 - - [10/Jun/2020:15:09:43 +0000] "GET /favicon.ico HTTP/1.1" 401 23 "http://localhost:5000/reset" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
 127.0.0.1 - - [10/Jun/2020:15:10:16 +0000] "GET /reset HTTP/1.1" 200 58 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
 127.0.0.1 - - [10/Jun/2020:15:10:16 +0000] "GET /favicon.ico HTTP/1.1" 401 23 "http://localhost:5000/reset" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
+127.0.0.1 - - [10/Jun/2020:15:10:20 +0000] "GET /admin/acl/index/info HTTP/1.1" 200 295 "http://localhost:3000/edu/subject/add" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
+127.0.0.1 - - [10/Jun/2020:15:10:20 +0000] "GET /admin/acl/index/menu HTTP/1.1" 200 2630 "http://localhost:3000/edu/subject/add" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
+127.0.0.1 - - [10/Jun/2020:15:12:32 +0000] "GET / HTTP/1.1" 401 23 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"
+127.0.0.1 - - [10/Jun/2020:15:12:33 +0000] "GET /favicon.ico HTTP/1.1" 401 23 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36"

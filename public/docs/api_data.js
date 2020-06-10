@@ -1,5 +1,143 @@
 define({ "api": [
   {
+    "type": "post",
+    "url": "/admin/edu/chapter/save",
+    "title": "新增章节",
+    "description": "<p>新增章节</p>",
+    "name": "save",
+    "group": "chapter-admin-controller:_章节管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "courceId",
+            "description": "<p>课程id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>章节名称</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>章节数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/chapter/save"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "chapter-admin-controller:_章节管理"
+  },
+  {
+    "type": "get",
+    "url": "/admin/edu/cource/:page/:limit",
+    "title": "获取课程分页列表",
+    "description": "<p>获取课程分页列表</p>",
+    "name": "get",
+    "group": "cource-admin-controller:_课程管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "page",
+            "description": "<p>当前页码</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "limit",
+            "description": "<p>每页数量</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>课程数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/cource/:page/:limit"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "cource-admin-controller:_课程管理"
+  },
+  {
     "type": "get",
     "url": "/admin/edu/cource/:page/:limit",
     "title": "获取课程分页列表",
@@ -114,7 +252,118 @@ define({ "api": [
       }
     ],
     "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "cource-admin-controller:_课程管理"
+  },
+  {
+    "type": "get",
+    "url": "/admin/edu/cource",
+    "title": "获取所有课程列表",
+    "description": "<p>获取所有课程列表</p>",
+    "name": "getall",
+    "group": "cource-admin-controller:_课程管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>课程数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/cource"
+      }
+    ],
+    "version": "1.0.0",
     "filename": "routers/edu/course.js",
+    "groupTitle": "cource-admin-controller:_课程管理"
+  },
+  {
+    "type": "put",
+    "url": "/admin/edu/cource/publish",
+    "title": "发布课程",
+    "description": "<p>发布课程</p>",
+    "name": "publish",
+    "group": "cource-admin-controller:_课程管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "courceId",
+            "description": "<p>课程id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>课程数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/cource/publish"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
     "groupTitle": "cource-admin-controller:_课程管理"
   },
   {
@@ -405,6 +654,124 @@ define({ "api": [
       }
     ],
     "version": "1.0.0",
+    "filename": "routers/edu/chapter.js",
+    "groupTitle": "cource-admin-controller:_课程管理"
+  },
+  {
+    "type": "put",
+    "url": "/admin/edu/cource/update",
+    "title": "更新课程",
+    "description": "<p>更新课程</p>",
+    "name": "update",
+    "group": "cource-admin-controller:_课程管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "courceId",
+            "description": "<p>课程id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "teacherId",
+            "description": "<p>可选，讲师id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subjectId",
+            "description": "<p>可选，课程分类id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subjectParentId",
+            "description": "<p>可选，父级课程分类id(0代表一级分类)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>可选，课程名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "price",
+            "description": "<p>可选，课程价格（0代表免费）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lessonNum",
+            "description": "<p>可选，课程总课时</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>可选，课程简介</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cover",
+            "description": "<p>可选，课程图片</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>课程数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/cource/update"
+      }
+    ],
+    "version": "1.0.0",
     "filename": "routers/edu/course.js",
     "groupTitle": "cource-admin-controller:_课程管理"
   },
@@ -525,62 +892,6 @@ define({ "api": [
     ],
     "version": "1.0.0",
     "filename": "routers/acl/login.js",
-    "groupTitle": "index-controller:_后台登录与权限管理"
-  },
-  {
-    "type": "post",
-    "url": "/admin/acl/index/login",
-    "title": "用户登录",
-    "description": "<p>用户登录</p>",
-    "name": "login",
-    "group": "index-controller:_后台登录与权限管理",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "username",
-            "description": "<p>用户名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "password",
-            "description": "<p>密码</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>权限令牌</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n        \"token\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlN2Q1YWQ0MDA0YjM2MGM5YzhkN2IwZiIsImlhdCI6MTU4NjA5OTg3NywiZXhwIjoxNTg2NzA0Njc3fQ.B-N-xZXgxA_LOmEAJ0ZTYmXPt89KRGo0ZSjvwx9dhog\",\n    },\n    \"message\": \"\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "sampleRequest": [
-      {
-        "url": "http://47.103.203.152/admin/acl/index/login"
-      }
-    ],
-    "version": "1.0.0",
-    "filename": "routers/edu/chapter.js",
     "groupTitle": "index-controller:_后台登录与权限管理"
   },
   {
@@ -1094,6 +1405,42 @@ define({ "api": [
     "version": "1.0.0",
     "filename": "routers/acl/permission.js",
     "groupTitle": "permission-admin-controller:_菜单管理"
+  },
+  {
+    "type": "get",
+    "url": "/reset",
+    "title": "重置数据",
+    "description": "<p>重置数据</p>",
+    "name": "reset",
+    "group": "reset:_重置数据",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/reset"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/reset.js",
+    "groupTitle": "reset:_重置数据"
   },
   {
     "type": "delete",

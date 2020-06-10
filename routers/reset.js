@@ -9,6 +9,23 @@ const { SuccessModal, ErrorModal } = require("../model");
 const Router = express.Router;
 const router = new Router();
 
+/**
+ * @api {get} /reset 重置数据
+ * @apiDescription 重置数据
+ * @apiName reset
+ * @apiGroup reset: 重置数据
+ * @apiSuccess {Object} data
+ * @apiSuccessExample {json} Success-Response:
+ *  {
+ *      "code": 20000,
+ *      "success" : true,
+ *      "data" : {
+ *      },
+ *      "message": ""
+ *  }
+ * @apiSampleRequest http://47.103.203.152/reset
+ * @apiVersion 1.0.0
+ */
 router.get("/reset", (req, res) => {
   try {
     const pathname = path.resolve(__dirname, "../test/index.js");
