@@ -1,0 +1,27 @@
+{
+  "name": "react-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon server.js",
+    "build": "cross-env NODE_ENV=production nodemon server.js",
+    "docs": "apidoc -i routers/ -o public/docs/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.6",
+    "morgan": "^1.10.0"
+  },
+  "apidoc": {
+    "title": "硅谷教育管理系统接口文档",
+    "url": "http://47.103.203.152"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
+}
