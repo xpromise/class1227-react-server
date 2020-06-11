@@ -7,7 +7,7 @@ const chapters = new mongoose.Schema({
 		required: true,
 	},
 	// 课程id
-	courceId: {
+	courseId: {
 		type: String,
 		required: true,
 	},

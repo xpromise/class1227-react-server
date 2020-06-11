@@ -102,7 +102,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "courceId",
+            "field": "courseId",
             "description": "<p>课程id</p>"
           }
         ]
@@ -226,7 +226,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "courceId",
+            "field": "courseId",
             "description": "<p>课程id</p>"
           },
           {

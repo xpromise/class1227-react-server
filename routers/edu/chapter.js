@@ -9,7 +9,10 @@ const Router = express.Router;
 const router = new Router();
 
 const filter = {
-  __v: 0,
+	__v: 0,
+	courseId: 0,
+	gmtCreate: 0,
+	gmtModified: 0,
 };
 
 /**
@@ -18,7 +21,7 @@ const filter = {
  * @apiName save
  * @apiGroup chapter-admin-controller: 章节管理
  * @apiHeader {String} token 权限令牌
- * @apiParam {String} courceId 课程id
+ * @apiParam {String} courseId 课程id
  * @apiParam {String} title 章节名称
  * @apiSuccess {Object} data 章节数据
  * @apiSuccessExample {json} Success-Response:
@@ -33,17 +36,17 @@ const filter = {
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
-  const { courceId, title } = req.body;
+	const { courseId, title } = req.body;
 
-  try {
-    const result = await Chapters.create({ courceId, title });
+	try {
+		const result = await Chapters.create({ courseId, title });
 
-    // 保存成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    // 保存失败
-    res.json(new ErrorModal({ message: "网络出错～" }));
-  }
+		// 保存成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 保存失败
+		res.json(new ErrorModal({ message: "网络出错～" }));
+	}
 });
 
 /**
@@ -54,7 +57,7 @@ router.post("/save", async (req, res) => {
  * @apiHeader {String} token 权限令牌
  * @apiParam {Number} page 当前页码
  * @apiParam {Number} limit 每页数量
- * @apiParam {String} courceId 课程id
+ * @apiParam {String} courseId 课程id
  * @apiSuccess {Object} data 章节数据
  * @apiSuccessExample {json} Success-Response:
  *  {
@@ -68,34 +71,34 @@ router.post("/save", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
-  const { page, limit } = req.params;
-  const { courceId } = req.query;
+	const { page, limit } = req.params;
+	const { courseId } = req.query;
 
-  try {
-    let skip = 0;
-    let limitOptions = {};
-    limitOptions = { skip };
+	try {
+		let skip = 0;
+		let limitOptions = {};
+		limitOptions = { skip };
 
-    if (limit !== 0) {
-      skip = (page - 1) * limit;
-      limitOptions.skip = skip;
-      limitOptions.limit = +limit;
-    }
+		if (limit !== 0) {
+			skip = (page - 1) * limit;
+			limitOptions.skip = skip;
+			limitOptions.limit = +limit;
+		}
 
-    const total = await Chapters.countDocuments({ courceId });
-    const items = await Chapters.find({ courceId }, filter, limitOptions);
+		const total = await Chapters.countDocuments({ courseId });
+		const items = await Chapters.find({ courseId }, filter, limitOptions);
 
-    res.json(
-      new SuccessModal({
-        data: {
-          total,
-          items,
-        },
-      })
-    );
-  } catch (e) {
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		res.json(
+			new SuccessModal({
+				data: {
+					total,
+					items,
+				},
+			})
+		);
+	} catch (e) {
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -119,20 +122,20 @@ router.get("/:page/:limit", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
-  const { chapterId, title } = req.body;
+	const { chapterId, title } = req.body;
 
-  try {
-    const result = await Chapters.updateOne(
-      {
-        chapterId,
-      },
-      { $set: { title } }
-    );
+	try {
+		const result = await Chapters.updateOne(
+			{
+				chapterId,
+			},
+			{ $set: { title } }
+		);
 
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -155,17 +158,17 @@ router.put("/update", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:chapterId", async (req, res) => {
-  const { chapterId } = req.params;
+	const { chapterId } = req.params;
 
-  try {
-    const result = await Chapters.deleteOne({
-      chapterId,
-    });
+	try {
+		const result = await Chapters.deleteOne({
+			chapterId,
+		});
 
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -188,17 +191,17 @@ router.delete("/remove/:chapterId", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.delete("/batchRemove", async (req, res) => {
-  const { idList } = req.body;
+	const { idList } = req.body;
 
-  try {
-    const result = await Chapters.deleteMany({
-      _id: { $in: idList },
-    });
+	try {
+		const result = await Chapters.deleteMany({
+			_id: { $in: idList },
+		});
 
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 module.exports = router;
