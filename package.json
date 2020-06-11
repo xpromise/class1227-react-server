@@ -8,7 +8,8 @@
     "build": "cross-env NODE_ENV=production nodemon server.js",
     "pm2:start": "pm2 start server.js",
     "pm2:restart": "pm2 restart server.js",
-    "docs": "apidoc -i routers/ -o public/docs/"
+    "docs": "apidoc -i routers/ -o public/docs/",
+    "reset": "node test/index.js"
   },
   "keywords": [],
   "author": "",
