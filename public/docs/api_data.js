@@ -3199,6 +3199,62 @@ define({ "api": [
     "groupTitle": "teacher-admin-controller:_讲师管理"
   },
   {
+    "type": "get",
+    "url": "/uploadtoken",
+    "title": "获取七牛云上传凭据",
+    "description": "<p>获取七牛云上传凭据</p>",
+    "name": "uploadtoken",
+    "group": "uploadtoken:_七牛云管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "uploadToken",
+            "description": "<p>上传凭证</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "expires",
+            "description": "<p>过期时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : \"\",\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/uploadtoken"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/upload.js",
+    "groupTitle": "uploadtoken:_七牛云管理"
+  },
+  {
     "type": "delete",
     "url": "/admin/acl/user/batchRemove",
     "title": "批量删除用户",

@@ -17,7 +17,8 @@ const router = new Router();
  * @apiName uploadtoken
  * @apiGroup uploadtoken: 七牛云管理
  * @apiHeader {String} token 权限令牌
- * @apiSuccess {String} uploadtoken
+ * @apiSuccess {String} uploadToken 上传凭证
+ * @apiSuccess {Number} expires 过期时间
  * @apiSuccessExample {json} Success-Response:
  *  {
  *      "code": 20000,
