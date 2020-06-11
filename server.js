@@ -24,6 +24,7 @@ const permissionRouter = require("./routers/acl/permission");
 const teacherRouter = require("./routers/edu/teacher");
 const subjectRouter = require("./routers/edu/subject");
 const chapterRouter = require("./routers/edu/chapter");
+const courseRouter = require("./routers/edu/course");
 
 const app = express();
 
@@ -73,6 +74,7 @@ app.use("/admin/acl/permission", permissionRouter);
 app.use("/admin/edu/teacher", teacherRouter);
 app.use("/admin/edu/subject", subjectRouter);
 app.use("/admin/edu/chapter", chapterRouter);
+app.use("/admin/edu/course", courseRouter);
 
 app.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, (err) => {
   if (!err)
