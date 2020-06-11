@@ -339,11 +339,11 @@
   },
   {
     "type": "get",
-    "url": "/admin/edu/cource/:page/:limit",
+    "url": "/admin/edu/course/:page/:limit",
     "title": "获取课程分页列表",
     "description": "<p>获取课程分页列表</p>",
     "name": "get",
-    "group": "cource-admin-controller:_课程管理",
+    "group": "course-admin-controller:_课程管理",
     "header": {
       "fields": {
         "Header": [
@@ -399,20 +399,20 @@
     },
     "sampleRequest": [
       {
-        "url": "http://47.103.203.152/admin/edu/cource/:page/:limit"
+        "url": "http://47.103.203.152/admin/edu/course/:page/:limit"
       }
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
+    "groupTitle": "course-admin-controller:_课程管理"
   },
   {
     "type": "get",
-    "url": "/admin/edu/cource",
+    "url": "/admin/edu/course",
     "title": "获取所有课程列表",
     "description": "<p>获取所有课程列表</p>",
     "name": "getall",
-    "group": "cource-admin-controller:_课程管理",
+    "group": "course-admin-controller:_课程管理",
     "header": {
       "fields": {
         "Header": [
@@ -448,20 +448,20 @@
     },
     "sampleRequest": [
       {
-        "url": "http://47.103.203.152/admin/edu/cource"
+        "url": "http://47.103.203.152/admin/edu/course"
       }
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
+    "groupTitle": "course-admin-controller:_课程管理"
   },
   {
     "type": "put",
-    "url": "/admin/edu/cource/publish",
+    "url": "/admin/edu/course/publish",
     "title": "发布课程",
     "description": "<p>发布课程</p>",
     "name": "publish",
-    "group": "cource-admin-controller:_课程管理",
+    "group": "course-admin-controller:_课程管理",
     "header": {
       "fields": {
         "Header": [
@@ -482,7 +482,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "courceId",
+            "field": "courseId",
             "description": "<p>课程id</p>"
           }
         ]
@@ -510,20 +510,20 @@
     },
     "sampleRequest": [
       {
-        "url": "http://47.103.203.152/admin/edu/cource/publish"
+        "url": "http://47.103.203.152/admin/edu/course/publish"
       }
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
+    "groupTitle": "course-admin-controller:_课程管理"
   },
   {
     "type": "post",
-    "url": "/admin/edu/cource/save",
+    "url": "/admin/edu/course/save",
     "title": "新增课程",
     "description": "<p>新增课程</p>",
     "name": "save",
-    "group": "cource-admin-controller:_课程管理",
+    "group": "course-admin-controller:_课程管理",
     "header": {
       "fields": {
         "Header": [
@@ -570,14 +570,14 @@
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Number",
             "optional": false,
             "field": "price",
             "description": "<p>课程价格（0代表免费）</p>"
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Number",
             "optional": false,
             "field": "lessonNum",
             "description": "<p>课程总课时</p>"
@@ -621,20 +621,20 @@
     },
     "sampleRequest": [
       {
-        "url": "http://47.103.203.152/admin/edu/cource/save"
+        "url": "http://47.103.203.152/admin/edu/course/save"
       }
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
+    "groupTitle": "course-admin-controller:_课程管理"
   },
   {
     "type": "put",
-    "url": "/admin/edu/cource/update",
+    "url": "/admin/edu/course/update",
     "title": "更新课程",
     "description": "<p>更新课程</p>",
     "name": "update",
-    "group": "cource-admin-controller:_课程管理",
+    "group": "course-admin-controller:_课程管理",
     "header": {
       "fields": {
         "Header": [
@@ -655,7 +655,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "courceId",
+            "field": "courseId",
             "description": "<p>课程id</p>"
           },
           {
@@ -739,12 +739,12 @@
     },
     "sampleRequest": [
       {
-        "url": "http://47.103.203.152/admin/edu/cource/update"
+        "url": "http://47.103.203.152/admin/edu/course/update"
       }
     ],
     "version": "1.0.0",
     "filename": "routers/edu/course.js",
-    "groupTitle": "cource-admin-controller:_课程管理"
+    "groupTitle": "course-admin-controller:_课程管理"
   },
   {
     "type": "get",
