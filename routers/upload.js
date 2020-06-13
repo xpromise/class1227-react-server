@@ -39,7 +39,7 @@ router.get("/uploadtoken", (req, res) => {
 		const uploadToken = putPolicy.uploadToken(mac);
 
 		console.log(uploadToken);
-		// 默认过期时间1小时～
+		// 默认过期时间2小时～
 		res.json(
 			new SuccessModal({
 				data: {
