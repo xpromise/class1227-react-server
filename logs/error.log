@@ -1,2 +1,4 @@
 GET /admin/edu/lesson/get/5ee21318ad4328862293a93b 404 184 - 1.676 ms
 GET /admin/edu/lesson/get/5ee21321ad4328862293a93c 404 184 - 1.550 ms
+GET /admin/edu/subject 401 23 - 282.070 ms
+GET /favicon.ico 401 23 - 0.275 ms
