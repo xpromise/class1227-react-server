@@ -9,7 +9,7 @@ const Router = express.Router;
 const router = new Router();
 
 const filter = {
-  __v: 0,
+	__v: 0,
 };
 
 /**
@@ -30,19 +30,19 @@ const filter = {
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {
-  try {
-    const items = await Subjects.find({ parentId: "0" }, filter);
+	try {
+		const items = await Subjects.find({ parentId: "0" }, filter);
 
-    res.json(
-      new SuccessModal({
-        data: items,
-      })
-    );
-  } catch (e) {
-    console.log(e);
+		res.json(
+			new SuccessModal({
+				data: items,
+			})
+		);
+	} catch (e) {
+		console.log(e);
 
-    res.json(new ErrorModal({ message: e }));
-  }
+		res.json(new ErrorModal({ message: e }));
+	}
 });
 
 /**
@@ -66,17 +66,83 @@ router.get("/", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
-  const body = req.body;
+	const body = req.body;
 
-  try {
-    const result = await Subjects.create(body);
+	try {
+		const result = await Subjects.create(body);
 
-    // 保存成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    // 保存失败
-    res.json(new ErrorModal({ message: "课程分类名称已存在" }));
-  }
+		// 保存成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 保存失败
+		res.json(new ErrorModal({ message: "课程分类名称已存在" }));
+	}
+});
+
+/**
+ * @api {get} /admin/edu/subject 获取所有一级课程分类数据
+ * @apiDescription 获取所有一级课程分类数据
+ * @apiName subject
+ * @apiGroup subject-admin-controller: 课程分类管理
+ * @apiHeader {String} token 权限令牌
+ * @apiSuccess {[]} data
+ * @apiSuccessExample {json} Success-Response:
+ *  {
+ *      "code": 20000,
+ *      "success" : true,
+ *      "data" : [],
+ *      "message": ""
+ *  }
+ * @apiSampleRequest http://47.103.203.152/admin/edu/subject
+ * @apiVersion 1.0.0
+ */
+router.get("/", async (req, res) => {
+	try {
+		const items = await Subjects.find({ parentId: "0" }, filter);
+
+		res.json(
+			new SuccessModal({
+				data: items,
+			})
+		);
+	} catch (e) {
+		console.log(e);
+
+		res.json(new ErrorModal({ message: e }));
+	}
+});
+
+/**
+ * @api {get} /admin/edu/subject/get 获取分类数据
+ * @apiDescription 获取分类数据
+ * @apiName getsubject
+ * @apiGroup subject-admin-controller: 课程分类管理
+ * @apiHeader {String} token 权限令牌
+ * @apiParam {String} id 课程分类id
+ * @apiSuccess {Object} data 课程分类数据
+ * @apiSuccessExample {json} Success-Response:
+ *  {
+ *      "code": 20000,
+ *      "success" : true,
+ *      "data" : {
+ *      },
+ *      "message": ""
+ *  }
+ * @apiSampleRequest http://47.103.203.152/admin/edu/subject/get
+ * @apiVersion 1.0.0
+ */
+router.get("/get", async (req, res) => {
+	const { id } = req.query;
+
+	try {
+		const result = await Subjects.findOne({ _id: id });
+
+		// 保存成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 保存失败
+		res.json(new ErrorModal({ message: e }));
+	}
 });
 
 /**
@@ -100,22 +166,22 @@ router.post("/save", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
-  const { id, title } = req.body;
+	const { id, title } = req.body;
 
-  try {
-    const result = await Subjects.updateOne(
-      {
-        _id: id,
-      },
-      { $set: { title } }
-    );
+	try {
+		const result = await Subjects.updateOne(
+			{
+				_id: id,
+			},
+			{ $set: { title } }
+		);
 
-    // 更新成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    // 更新失败
-    res.json(new ErrorModal({ message: "课程分类不存在" }));
-  }
+		// 更新成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 更新失败
+		res.json(new ErrorModal({ message: "课程分类不存在" }));
+	}
 });
 
 /**
@@ -141,24 +207,24 @@ router.put("/update", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.get("/get/:parentId", async (req, res) => {
-  const { parentId } = req.params;
+	const { parentId } = req.params;
 
-  try {
-    const items = await Subjects.find({ parentId }, filter);
+	try {
+		const items = await Subjects.find({ parentId }, filter);
 
-    res.json(
-      new SuccessModal({
-        data: {
-          total: items.length,
-          items,
-        },
-      })
-    );
-  } catch (e) {
-    console.log(e);
+		res.json(
+			new SuccessModal({
+				data: {
+					total: items.length,
+					items,
+				},
+			})
+		);
+	} catch (e) {
+		console.log(e);
 
-    res.json(new ErrorModal({ message: e }));
-  }
+		res.json(new ErrorModal({ message: e }));
+	}
 });
 
 /**
@@ -185,35 +251,35 @@ router.get("/get/:parentId", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
-  const { page, limit } = req.params;
+	const { page, limit } = req.params;
 
-  try {
-    let skip = 0;
-    let limitOptions = {};
-    limitOptions = { skip };
+	try {
+		let skip = 0;
+		let limitOptions = {};
+		limitOptions = { skip };
 
-    if (limit !== 0) {
-      skip = (page - 1) * limit;
-      limitOptions.skip = skip;
-      limitOptions.limit = +limit;
-    }
+		if (limit !== 0) {
+			skip = (page - 1) * limit;
+			limitOptions.skip = skip;
+			limitOptions.limit = +limit;
+		}
 
-    const total = await Subjects.countDocuments({ parentId: "0" });
-    const items = await Subjects.find({ parentId: "0" }, filter, limitOptions);
+		const total = await Subjects.countDocuments({ parentId: "0" });
+		const items = await Subjects.find({ parentId: "0" }, filter, limitOptions);
 
-    res.json(
-      new SuccessModal({
-        data: {
-          total,
-          items,
-        },
-      })
-    );
-  } catch (e) {
-    console.log(e);
+		res.json(
+			new SuccessModal({
+				data: {
+					total,
+					items,
+				},
+			})
+		);
+	} catch (e) {
+		console.log(e);
 
-    res.json(new ErrorModal({ message: e }));
-  }
+		res.json(new ErrorModal({ message: e }));
+	}
 });
 
 /**
@@ -236,19 +302,19 @@ router.get("/:page/:limit", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:id", async (req, res) => {
-  const { id } = req.params;
+	const { id } = req.params;
 
-  try {
-    await Subjects.deleteOne({ _id: id });
+	try {
+		await Subjects.deleteOne({ _id: id });
 
-    res.json(
-      new SuccessModal({
-        data: {},
-      })
-    );
-  } catch (e) {
-    res.json(new ErrorModal({ message: e }));
-  }
+		res.json(
+			new SuccessModal({
+				data: {},
+			})
+		);
+	} catch (e) {
+		res.json(new ErrorModal({ message: e }));
+	}
 });
 
 module.exports = router;

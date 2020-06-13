@@ -2415,6 +2415,68 @@ define({ "api": [
     "groupTitle": "subject-admin-controller:_课程分类管理"
   },
   {
+    "type": "get",
+    "url": "/admin/edu/subject/get",
+    "title": "获取分类数据",
+    "description": "<p>获取分类数据</p>",
+    "name": "getsubject",
+    "group": "subject-admin-controller:_课程分类管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>课程分类id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>课程分类数据</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : {\n    },\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/subject/get"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/subject.js",
+    "groupTitle": "subject-admin-controller:_课程分类管理"
+  },
+  {
     "type": "post",
     "url": "/admin/edu/subject/save",
     "title": "添加课程分类",
@@ -2477,6 +2539,55 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "http://47.103.203.152/admin/edu/subject/save"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/edu/subject.js",
+    "groupTitle": "subject-admin-controller:_课程分类管理"
+  },
+  {
+    "type": "get",
+    "url": "/admin/edu/subject",
+    "title": "获取所有一级课程分类数据",
+    "description": "<p>获取所有一级课程分类数据</p>",
+    "name": "subject",
+    "group": "subject-admin-controller:_课程分类管理",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>权限令牌</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "[]",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"code\": 20000,\n    \"success\" : true,\n    \"data\" : [],\n    \"message\": \"\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/admin/edu/subject"
       }
     ],
     "version": "1.0.0",
