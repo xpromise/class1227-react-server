@@ -401,6 +401,20 @@ define({ "api": [
             "optional": false,
             "field": "title",
             "description": "<p>可选，课程名称(模糊匹配)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sortBy",
+            "description": "<p>可选，排序字段</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "sort",
+            "description": "<p>可选，排序方式(1正序 -1倒叙)</p>"
           }
         ]
       }
