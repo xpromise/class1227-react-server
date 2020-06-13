@@ -373,6 +373,34 @@ define({ "api": [
             "optional": false,
             "field": "limit",
             "description": "<p>每页数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "teacherId",
+            "description": "<p>可选，讲师id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subjectId",
+            "description": "<p>可选，课程分类id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subjectParentId",
+            "description": "<p>可选，父级课程分类id(0代表一级分类)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>可选，课程名称(模糊匹配)</p>"
           }
         ]
       }

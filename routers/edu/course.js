@@ -9,7 +9,7 @@ const Router = express.Router;
 const router = new Router();
 
 const filter = {
-  __v: 0,
+	__v: 0,
 };
 
 /**
@@ -39,19 +39,19 @@ const filter = {
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
-  const body = req.body;
+	const body = req.body;
 
-  try {
-    const result = await courses.create(body);
+	try {
+		const result = await courses.create(body);
 
-    // 保存成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    console.log(e);
+		// 保存成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		console.log(e);
 
-    // 保存失败
-    res.json(new ErrorModal({ message: "缺少必要课程数据" }));
-  }
+		// 保存失败
+		res.json(new ErrorModal({ message: "缺少必要课程数据" }));
+	}
 });
 
 /**
@@ -74,22 +74,22 @@ router.post("/save", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.put("/publish", async (req, res) => {
-  const { courseId } = req.body;
+	const { courseId } = req.body;
 
-  try {
-    const result = await courses.updateOne(
-      {
-        _id: courseId,
-      },
-      { $set: { status: 1 } }
-    );
+	try {
+		const result = await courses.updateOne(
+			{
+				_id: courseId,
+			},
+			{ $set: { status: 1 } }
+		);
 
-    // 更新成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    // 更新失败
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		// 更新成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 更新失败
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -120,22 +120,22 @@ router.put("/publish", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
-  const { courseId, ...body } = req.body;
+	const { courseId, ...body } = req.body;
 
-  try {
-    const result = await courses.updateOne(
-      {
-        _id: courseId,
-      },
-      { $set: body }
-    );
+	try {
+		const result = await courses.updateOne(
+			{
+				_id: courseId,
+			},
+			{ $set: body }
+		);
 
-    // 更新成功
-    res.json(new SuccessModal({ data: result }));
-  } catch (e) {
-    // 更新失败
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		// 更新成功
+		res.json(new SuccessModal({ data: result }));
+	} catch (e) {
+		// 更新失败
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -146,6 +146,10 @@ router.put("/update", async (req, res) => {
  * @apiHeader {String} token 权限令牌
  * @apiParam {String} page 当前页码
  * @apiParam {String} limit 每页数量
+ * @apiParam {String} teacherId 可选，讲师id
+ * @apiParam {String} subjectId 可选，课程分类id
+ * @apiParam {String} subjectParentId 可选，父级课程分类id(0代表一级分类)
+ * @apiParam {String} title 可选，课程名称(模糊匹配)
  * @apiSuccess {Object} data 课程数据
  * @apiSuccessExample {json} Success-Response:
  *  {
@@ -159,34 +163,50 @@ router.put("/update", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
-  const { page, limit } = req.params;
+	const { page, limit } = req.params;
+	const { title, teacherId, subjectId, subjectParentId } = req.query;
 
-  try {
-    let skip = 0;
-    let limitOptions = {};
-    limitOptions = { skip };
+	const condition = {};
 
-    if (limit !== 0) {
-      skip = (page - 1) * limit;
-      limitOptions.skip = skip;
-      limitOptions.limit = +limit;
-    }
+	if (title) {
+		condition.title = new RegExp(title);
+	}
+	if (teacherId) {
+		condition.teacherId = teacherId;
+	}
+	if (subjectId) {
+		condition.subjectId = subjectId;
+	}
+	if (subjectParentId) {
+		condition.subjectParentId = subjectParentId;
+	}
 
-    const total = await courses.countDocuments({});
-    const items = await courses.find({}, filter, limitOptions);
+	try {
+		let skip = 0;
+		let limitOptions = {};
+		limitOptions = { skip };
 
-    res.json(
-      new SuccessModal({
-        data: {
-          total,
-          items,
-        },
-      })
-    );
-  } catch (e) {
-    // 更新失败
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		if (limit !== 0) {
+			skip = (page - 1) * limit;
+			limitOptions.skip = skip;
+			limitOptions.limit = +limit;
+		}
+
+		const total = await courses.countDocuments(condition);
+		const items = await courses.find(condition, filter, limitOptions);
+
+		res.json(
+			new SuccessModal({
+				data: {
+					total,
+					items,
+				},
+			})
+		);
+	} catch (e) {
+		// 更新失败
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 /**
@@ -208,18 +228,18 @@ router.get("/:page/:limit", async (req, res) => {
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {
-  try {
-    const items = await courses.find({}, filter);
+	try {
+		const items = await courses.find({}, filter);
 
-    res.json(
-      new SuccessModal({
-        data: items,
-      })
-    );
-  } catch (e) {
-    // 更新失败
-    res.json(new ErrorModal({ message: "网络错误～" }));
-  }
+		res.json(
+			new SuccessModal({
+				data: items,
+			})
+		);
+	} catch (e) {
+		// 更新失败
+		res.json(new ErrorModal({ message: "网络错误～" }));
+	}
 });
 
 module.exports = router;
