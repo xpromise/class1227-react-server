@@ -150,8 +150,6 @@ router.put("/update", async (req, res) => {
  * @apiParam {String} subjectId 可选，课程分类id
  * @apiParam {String} subjectParentId 可选，父级课程分类id(0代表一级分类)
  * @apiParam {String} title 可选，课程名称(模糊匹配)
- * @apiParam {String} sortBy 可选，排序字段
- * @apiParam {Number} sort 可选，排序方式(1正序 -1倒叙)
  * @apiSuccess {Object} data 课程数据
  * @apiSuccessExample {json} Success-Response:
  *  {
@@ -166,14 +164,7 @@ router.put("/update", async (req, res) => {
  */
 router.get("/:page/:limit", async (req, res) => {
 	const { page, limit } = req.params;
-	const {
-		title,
-		teacherId,
-		subjectId,
-		subjectParentId,
-		sort,
-		sortBy,
-	} = req.query;
+	const { title, teacherId, subjectId, subjectParentId } = req.query;
 
 	const condition = {};
 
@@ -191,23 +182,18 @@ router.get("/:page/:limit", async (req, res) => {
 	}
 
 	try {
-		// let skip = 0;
-		// let limitOptions = {};
-		// limitOptions = { skip };
+		let skip = 0;
+		let limitOptions = {};
+		limitOptions = { skip };
 
-		// if (limit !== 0) {
-		// 	skip = (page - 1) * limit;
-		// 	limitOptions.skip = skip;
-		// 	limitOptions.limit = +limit;
-		// }
+		if (limit !== 0) {
+			skip = (page - 1) * limit;
+			limitOptions.skip = skip;
+			limitOptions.limit = +limit;
+		}
 
 		const total = await courses.countDocuments(condition);
-		const items = await courses
-			.find(condition)
-			.sort({ [sortBy]: sort })
-			.skip((page - 1) * limit)
-			.limit(+limit)
-			.exec();
+		const items = await courses.find(condition, filter, limitOptions);
 
 		res.json(
 			new SuccessModal({
@@ -218,8 +204,6 @@ router.get("/:page/:limit", async (req, res) => {
 			})
 		);
 	} catch (e) {
-		console.log(e);
-
 		// 更新失败
 		res.json(new ErrorModal({ message: "网络错误～" }));
 	}
