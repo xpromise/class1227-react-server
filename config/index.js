@@ -22,6 +22,13 @@ if (isDev) {
 	};
 }
 
+// 手机号oauth
+const PHONE_URL = 'http://139.196.108.241:8080/Api/HttpSendSMYzm.ashx'
+const ACCOUNT = 17688317990;
+const PSWD = 'Xiongjian2020';
+
+
+
 // github oauth
 const CLIENT_ID = "76a0e99f64abc45d6891";
 const CLIENT_SECRET = "3a7d2fa4657b234a4ffd878c82d4d347a0121ca5";
@@ -49,4 +56,8 @@ module.exports = {
 
 	CLIENT_ID,
 	CLIENT_SECRET,
+
+	PHONE_URL,
+	ACCOUNT,
+	PSWD
 };

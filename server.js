@@ -58,6 +58,9 @@ app.use(
 		},
 	})
 );
+// 内置中间件：用来解析POST请求体参数
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // 重置数据~
 app.use(resetRouter);
@@ -65,10 +68,6 @@ app.use(oauthRouter);
 // 使用中间件
 // app.use(cors);
 app.use(acl);
-
-// 内置中间件：用来解析POST请求体参数
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // 应用 路由器中间件
 app.use(uploadRouter);

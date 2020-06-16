@@ -3,8 +3,17 @@
  */
 const express = require("express");
 const axios = require("axios");
+const dayjs = require("dayjs");
+const md5 = require("md5");
 const { SuccessModal, ErrorModal } = require("../model");
-const { CLIENT_ID, CLIENT_SECRET } = require("../config");
+const {
+	CLIENT_ID,
+	CLIENT_SECRET,
+	PHONE_URL,
+	PSWD,
+	ACCOUNT,
+} = require("../config");
+
 const { sign, verify } = require("../utils/jwt");
 
 const Users = require("../db/models/acl/users");
@@ -17,7 +26,7 @@ const router = new Router();
  * @apiDescription github oauth 登陆
  * @apiName oauth
  * @apiGroup oauth: github oauth 登陆
- * @apiParam {String} code 授权码
+ * @apiParam {Number} code 授权码
  * @apiSuccess {Object} data
  * @apiSampleRequest http://47.103.203.152/oauth/redirect
  * @apiVersion 1.0.0
@@ -86,6 +95,119 @@ router.get("/oauth/redirect", async (req, res) => {
 		res.redirect(`http://localhost:3000/oauth?token=${token}`);
 	} catch (e) {
 		console.log(e);
+	}
+});
+
+/**
+ * @api {post} /oauth/sign_in/digits 发送验证码
+ * @apiDescription digits 发送验证码
+ * @apiName digits
+ * @apiGroup login 登陆
+ * @apiParam {Number} mobile 手机号
+ * @apiSuccess {Object} data
+ * @apiSampleRequest http://47.103.203.152/oauth/sign_in/digits
+ * @apiVersion 1.0.0
+ */
+router.post("/oauth/sign_in/digits", async (req, res) => {
+	const { mobile } = req.body;
+
+	const verify_code = getVerifyCode(6);
+	// https://www.shmiaosai.com/support/cate-60.html
+
+	const ts = dayjs().format("YYYYMMDDHHmmss");
+
+	const pswd = md5(ACCOUNT + PSWD + ts);
+
+	const { data } = await axios({
+		method: "get",
+		url: PHONE_URL,
+		params: {
+			account: ACCOUNT,
+			pswd,
+			mobile,
+			ts,
+			msg: getMsg(verify_code),
+			sms_sign: "秒赛云",
+		},
+	});
+
+	const user = await Users.findOne({ username: mobile });
+
+	if (!user) {
+		await Users.create({
+			username: mobile,
+			password: pswd,
+			roleId: "5e7c6d21b3071d0e44c8b231",
+			code: verify_code,
+			expires: Date.now(),
+			nickName: mobile,
+		});
+	} else {
+		user.code = verify_code;
+		user.expires = Date.now();
+		await user.save();
+	}
+
+	console.log(data);
+	console.log(verify_code);
+
+	res.json(new SuccessModal({}));
+});
+
+function getVerifyCode(len = 6) {
+	let verify_code = "";
+	for (let i = 0; i < len; i++) {
+		verify_code += Math.floor(Math.random() * 10);
+	}
+	return verify_code;
+}
+
+function getMsg(verify_code) {
+	return `您正在登陆硅谷教育管理系统，验证码：${verify_code}（30分钟内有效），如非本人操作，请忽略此短信。`;
+}
+
+const EXPIRES = 30 * 60 * 1000;
+
+/**
+ * @api {post} /oauth/mobile 手机号登陆
+ * @apiDescription mobile 手机号登陆
+ * @apiName mobile
+ * @apiGroup login 登陆
+ * @apiParam {Number} mobile 手机号
+ * @apiParam {Number} code 验证码
+ * @apiSuccess {Object} data
+ * @apiSampleRequest http://47.103.203.152/oauth/mobile
+ * @apiVersion 1.0.0
+ */
+router.post("/oauth/mobile", async (req, res) => {
+	const { mobile, code } = req.body;
+
+	const user = await Users.findOne({ mobile }, { password: 0, __v: 0 });
+
+	if (user.expires + EXPIRES > Date.now() && code === user.code) {
+		let token;
+		try {
+			token = user.token;
+			// 登录成功
+			if (!token) {
+				// 签发签名
+				token = await sign({ id: user.id });
+				// 存在数据库中
+				user.token = token;
+				await user.save();
+			} else {
+				await verify(token);
+			}
+		} catch {
+			token = await sign({ id: user.id });
+			// 存在数据库中
+			user.token = token;
+			await user.save();
+		}
+
+		res.json(new SuccessModal({ data: { token } }));
+	} else {
+		res.json(new ErrorModal({ message: "验证码无效～" }));
 	}
 });
 

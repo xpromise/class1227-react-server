@@ -1347,6 +1347,97 @@
     "groupTitle": "lesson-admin-controller:_课时管理"
   },
   {
+    "type": "post",
+    "url": "/oauth/sign_in/digits",
+    "title": "发送验证码",
+    "description": "<p>digits 发送验证码</p>",
+    "name": "digits",
+    "group": "login_登陆",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/oauth/sign_in/digits"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/oauth.js",
+    "groupTitle": "login_登陆"
+  },
+  {
+    "type": "post",
+    "url": "/oauth/mobile",
+    "title": "手机号登陆",
+    "description": "<p>mobile 手机号登陆</p>",
+    "name": "mobile",
+    "group": "login_登陆",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "code",
+            "description": "<p>验证码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "sampleRequest": [
+      {
+        "url": "http://47.103.203.152/oauth/mobile"
+      }
+    ],
+    "version": "1.0.0",
+    "filename": "routers/oauth.js",
+    "groupTitle": "login_登陆"
+  },
+  {
     "type": "get",
     "url": "/admin/acl/permission",
     "title": "获取所有菜单",
