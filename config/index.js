@@ -22,6 +22,10 @@ if (isDev) {
 	};
 }
 
+// github oauth
+const CLIENT_ID = "76a0e99f64abc45d6891";
+const CLIENT_SECRET = "3a7d2fa4657b234a4ffd878c82d4d347a0121ca5";
+
 // 七牛云配置
 const ACCESS_KEY = "VEXRGMpBfVe2MJGzdRYlxKX1jt3-CqY4fl_Y3SUS";
 const SECRET_KEY = "_wD9LklsklhQTOgEmPjHe7-cT0Rr54S_2GeMX82X";
@@ -40,6 +44,9 @@ module.exports = {
 
 	ACCESS_KEY,
 	SECRET_KEY,
-  BUCKET,
-  EXPIRES
+	BUCKET,
+	EXPIRES,
+
+	CLIENT_ID,
+	CLIENT_SECRET,
 };

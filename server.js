@@ -17,6 +17,7 @@ const acl = require("./middlleware/acl");
 
 // 引入路由
 const resetRouter = require("./routers/reset");
+const oauthRouter = require("./routers/oauth");
 const uploadRouter = require("./routers/upload");
 const loginRouter = require("./routers/acl/login");
 const userRouter = require("./routers/acl/user");
@@ -60,6 +61,7 @@ app.use(
 
 // 重置数据~
 app.use(resetRouter);
+app.use(oauthRouter);
 // 使用中间件
 // app.use(cors);
 app.use(acl);
