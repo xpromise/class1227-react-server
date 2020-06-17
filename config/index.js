@@ -5,33 +5,31 @@ const isDev = process.env.NODE_ENV === "development";
 
 // mongodb的配置
 const MONGO_CONFIG = {
-	port: 27017,
-	host: "localhost",
-	database: "react_admin",
+  port: 27017,
+  host: "localhost",
+  database: "react_admin",
 };
 // 服务器配置
 let SERVER_CONFIG = {
-	port: 80,
-	host: "0.0.0.0",
+  port: 80,
+  host: "0.0.0.0",
 };
 
 if (isDev) {
-	SERVER_CONFIG = {
-		port: 5000,
-		host: "localhost",
-	};
+  SERVER_CONFIG = {
+    port: 5000,
+    host: "localhost",
+  };
 }
 
 // 手机号oauth
-const PHONE_URL = 'http://139.196.108.241:8080/Api/HttpSendSMYzm.ashx'
+const PHONE_URL = "http://139.196.108.241:8080/Api/HttpSendSMYzm.ashx";
 const ACCOUNT = 17688317990;
-const PSWD = 'Xiongjian2020';
-
-
+const PSWD = "Xiongjian2020";
 
 // github oauth
-const CLIENT_ID = "76a0e99f64abc45d6891";
-const CLIENT_SECRET = "3a7d2fa4657b234a4ffd878c82d4d347a0121ca5";
+const CLIENT_ID = "ba6e49e04ddda1b425ed";
+const CLIENT_SECRET = "a00d71816a3fdb62af99de658fb9a893426bc95d";
 
 // 七牛云配置
 const ACCESS_KEY = "VEXRGMpBfVe2MJGzdRYlxKX1jt3-CqY4fl_Y3SUS";
@@ -44,20 +42,20 @@ const SECRET = "Zrrf2mvs^sD@xquG";
 const SAFE_PATHS = ["/admin/acl/index/login"];
 
 module.exports = {
-	MONGO_CONFIG,
-	SERVER_CONFIG,
-	SECRET,
-	SAFE_PATHS,
+  MONGO_CONFIG,
+  SERVER_CONFIG,
+  SECRET,
+  SAFE_PATHS,
 
-	ACCESS_KEY,
-	SECRET_KEY,
-	BUCKET,
-	EXPIRES,
+  ACCESS_KEY,
+  SECRET_KEY,
+  BUCKET,
+  EXPIRES,
 
-	CLIENT_ID,
-	CLIENT_SECRET,
+  CLIENT_ID,
+  CLIENT_SECRET,
 
-	PHONE_URL,
-	ACCOUNT,
-	PSWD
+  PHONE_URL,
+  ACCOUNT,
+  PSWD,
 };

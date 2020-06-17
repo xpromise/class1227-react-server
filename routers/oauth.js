@@ -73,13 +73,13 @@ router.get("/oauth/redirect", async (req, res) => {
       await Users.create({
         username: data.login,
         avatar: data.avatar_url,
-        nickName: data.name,
+        nickName: data.name || '硅谷fans',
         password: data.node_id,
         token: token,
         roleId: "5e7c6d21b3071d0e44c8b231", // 假设都是管理员用户～
       });
     } else {
-      console.log(user);
+      // console.log(user);
 
       try {
         token = user.token;
