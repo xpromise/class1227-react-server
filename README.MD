@@ -43,25 +43,31 @@
   - npm run pm2:restart
 - `"docs": "apidoc -i routers/ -o public/docs/"`
   - 用于生成 API 文档
-- `"reset": "node test/index.js"`  
-  - 用于重置mongodb数据
+- `"reset": "node test/index.js"`
+  - 用于重置 mongodb 数据
 
 ## 使用步骤
-1. 克隆server仓库
+
+1. 克隆 server 仓库
 2. npm i 下载所有依赖包
 3. 检查环境是否全部安装好
+
 - nodejs
 - mongodb
 - 全局安装包
-  - pm2 生产环境 进程守护 
+  - pm2 生产环境 进程守护
   - nodemon 开发环境 自动重启
   - apidoc 自动生成 API 文档
   - npm i pm2 nodemon apidoc -g
+
 4. npm start 启动服务器
+
 - 默认访问地址: http://localhost:5000
 
-5. 将react前端项目代理的目标服务器地址改成 http://localhost:5000 
+5. 将 react 前端项目代理的目标服务器地址改成 http://localhost:5000
+
 - package.json --> proxy --> http://localhost:5000
 
-6. 本地没有数据 
+6. 本地没有数据
+
 - npm run reset 重置本地数据
