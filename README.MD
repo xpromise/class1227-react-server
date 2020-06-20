@@ -23,7 +23,6 @@
 - nodejs
 - mongodb
 - 全局安装包
-  - pm2 生产环境 进程守护
   - nodemon 开发环境 自动重启
   - apidoc 自动生成 API 文档
 
@@ -35,12 +34,6 @@
 - `"build": "cross-env NODE_ENV=production nodemon server.js"`
   - 生产环境，用于测试上线服务器
   - npm run build
-- `"pm2:start": "pm2 start server.js"`
-  - 生产环境，开启进程守护，用于服务器上线
-  - npm run pm2:start
-- `"pm2:restart": "pm2 restart server.js"`
-  - 生产环境，用于重启服务器
-  - npm run pm2:restart
 - `"docs": "apidoc -i routers/ -o public/docs/"`
   - 用于生成 API 文档
 - `"reset": "node test/index.js"`
@@ -55,19 +48,11 @@
 - nodejs
 - mongodb
 - 全局安装包
-  - pm2 生产环境 进程守护
   - nodemon 开发环境 自动重启
   - apidoc 自动生成 API 文档
-  - npm i pm2 nodemon apidoc -g
+  - npm i nodemon apidoc -g
 
-4. npm start 启动服务器
+4. npm run reset 导入 mongodb 数据
+5. npm start 启动服务器
 
 - 默认访问地址: http://localhost:5000
-
-5. 将 react 前端项目代理的目标服务器地址改成 http://localhost:5000
-
-- package.json --> proxy --> http://localhost:5000
-
-6. 本地没有数据
-
-- npm run reset 重置本地数据
