@@ -26,7 +26,7 @@ const filter = {
  *      "data" : [],
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {
@@ -62,7 +62,7 @@ router.get("/", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/save
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -93,7 +93,7 @@ router.post("/save", async (req, res) => {
  *      "data" : [],
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {
@@ -128,7 +128,7 @@ router.get("/", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/get
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/get
  * @apiVersion 1.0.0
  */
 router.get("/get", async (req, res) => {
@@ -162,7 +162,7 @@ router.get("/get", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/update
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
@@ -203,7 +203,7 @@ router.put("/update", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/get/:parentId
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/get/:parentId
  * @apiVersion 1.0.0
  */
 router.get("/get/:parentId", async (req, res) => {
@@ -247,7 +247,7 @@ router.get("/get/:parentId", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/:page/:limit
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/:page/:limit
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
@@ -298,7 +298,7 @@ router.get("/:page/:limit", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/subject/remove/:id
+ * @apiSampleRequest http://localhost:5000/admin/edu/subject/remove/:id
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:id", async (req, res) => {

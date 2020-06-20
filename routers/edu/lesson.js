@@ -31,7 +31,7 @@ const filter = {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/lesson/save
+ * @apiSampleRequest http://localhost:5000/admin/edu/lesson/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -64,7 +64,7 @@ router.post("/save", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/lesson/get/:chapterId
+ * @apiSampleRequest http://localhost:5000/admin/edu/lesson/get/:chapterId
  * @apiVersion 1.0.0
  */
 router.get("/get/:chapterId", async (req, res) => {
@@ -102,7 +102,7 @@ router.get("/get/:chapterId", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/lesson/update
+ * @apiSampleRequest http://localhost:5000/admin/edu/lesson/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
@@ -149,7 +149,7 @@ router.put("/update", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/lesson/remove/:lessonId
+ * @apiSampleRequest http://localhost:5000/admin/edu/lesson/remove/:lessonId
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:lessonId", async (req, res) => {
@@ -182,7 +182,7 @@ router.delete("/remove/:lessonId", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/lesson/batchRemove
+ * @apiSampleRequest http://localhost:5000/admin/edu/lesson/batchRemove
  * @apiVersion 1.0.0
  */
 router.delete("/batchRemove", async (req, res) => {

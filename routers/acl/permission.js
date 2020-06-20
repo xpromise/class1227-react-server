@@ -35,7 +35,7 @@ const filter = {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission/save
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -117,7 +117,7 @@ function composeMenus(permissions) {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {
@@ -150,7 +150,7 @@ router.get("/", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission/doAssign
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission/doAssign
  * @apiVersion 1.0.0
  */
 router.post("/doAssign", async (req, res) => {
@@ -189,7 +189,7 @@ router.post("/doAssign", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission/remove/:id
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission/remove/:id
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:id", async (req, res) => {
@@ -235,7 +235,7 @@ router.delete("/remove/:id", async (req, res) => {
  *      "data" : [{}],
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission/remove/:id
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission/remove/:id
  * @apiVersion 1.0.0
  */
 router.get("/toAssign/:id", async (req, res) => {
@@ -288,7 +288,7 @@ router.get("/toAssign/:id", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/permission/update
+ * @apiSampleRequest http://localhost:5000/admin/acl/permission/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {

@@ -26,7 +26,7 @@ const router = new Router();
  *      "data" : "",
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/uploadtoken
+ * @apiSampleRequest http://localhost:5000/uploadtoken
  * @apiVersion 1.0.0
  */
 router.get("/uploadtoken", (req, res) => {

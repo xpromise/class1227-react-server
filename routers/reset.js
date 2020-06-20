@@ -23,7 +23,7 @@ const router = new Router();
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/reset
+ * @apiSampleRequest http://localhost:5000/reset
  * @apiVersion 1.0.0
  */
 router.get("/reset", (req, res) => {

@@ -22,7 +22,7 @@ const router = new Router();
  *      "data" : [{}],
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/list
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/list
  * @apiVersion 1.0.0
  */
 router.get("/list", async (req, res) => {
@@ -68,7 +68,7 @@ router.get("/list", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/get/:id
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/get/:id
  * @apiVersion 1.0.0
  */
 router.get("/get/:id", async (req, res) => {
@@ -98,7 +98,7 @@ router.get("/get/:id", async (req, res) => {
  *      "data" : [{"_id": "xxx", "name": "yyy"}],
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/name/:key
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/name/:key
  * @apiVersion 1.0.0
  */
 router.get("/name/:key", async (req, res) => {
@@ -137,7 +137,7 @@ router.get("/name/:key", async (req, res) => {
  *      "data" : {"total": 10, "items": [{}, {}]},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/:page/:limit
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/:page/:limit
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
@@ -207,7 +207,7 @@ router.get("/:page/:limit", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/save
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -242,7 +242,7 @@ router.post("/save", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/update
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
@@ -272,7 +272,7 @@ router.put("/update", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/remove/:id
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/remove/:id
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:id", async (req, res) => {
@@ -302,7 +302,7 @@ router.delete("/remove/:id", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/teacher/batchRemove
+ * @apiSampleRequest http://localhost:5000/admin/edu/teacher/batchRemove
  * @apiVersion 1.0.0
  */
 router.delete("/batchRemove", async (req, res) => {

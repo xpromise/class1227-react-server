@@ -28,7 +28,7 @@ const router = new Router();
  * @apiGroup oauth: github oauth 登陆
  * @apiParam {Number} code 授权码
  * @apiSuccess {Object} data
- * @apiSampleRequest http://47.103.203.152/oauth/redirect
+ * @apiSampleRequest http://localhost:5000/oauth/redirect
  * @apiVersion 1.0.0
  */
 router.get("/oauth/redirect", async (req, res) => {
@@ -105,7 +105,7 @@ router.get("/oauth/redirect", async (req, res) => {
  * @apiGroup login 登陆
  * @apiParam {Number} mobile 手机号
  * @apiSuccess {Object} data
- * @apiSampleRequest http://47.103.203.152/oauth/sign_in/digits
+ * @apiSampleRequest http://localhost:5000/oauth/sign_in/digits
  * @apiVersion 1.0.0
  */
 router.post("/oauth/sign_in/digits", async (req, res) => {
@@ -176,7 +176,7 @@ const EXPIRES = 30 * 60 * 1000;
  * @apiParam {Number} mobile 手机号
  * @apiParam {Number} code 验证码
  * @apiSuccess {Object} data
- * @apiSampleRequest http://47.103.203.152/oauth/mobile
+ * @apiSampleRequest http://localhost:5000/oauth/mobile
  * @apiVersion 1.0.0
  */
 router.post("/oauth/mobile", async (req, res) => {

@@ -40,7 +40,7 @@ const filter = {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/save
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -76,7 +76,7 @@ router.post("/save", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/get/:id
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/get/:id
  * @apiVersion 1.0.0
  */
 router.get("/get/:id", async (req, res) => {
@@ -112,7 +112,7 @@ router.get("/get/:id", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/remove/:id
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/remove/:id
  * @apiVersion 1.0.0
  */
 router.delete("/remove/:id", async (req, res) => {
@@ -145,7 +145,7 @@ router.delete("/remove/:id", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/batchRemove
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/batchRemove
  * @apiVersion 1.0.0
  */
 router.delete("/batchRemove", async (req, res) => {
@@ -186,7 +186,7 @@ router.delete("/batchRemove", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/update
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
@@ -237,7 +237,7 @@ router.put("/update", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/:page/:limit
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/:page/:limit
  * @apiVersion 1.0.0
  */
 router.get("/:page([0-9]+)/:limit", async (req, res) => {
@@ -286,7 +286,7 @@ router.get("/:page([0-9]+)/:limit", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/doAssign
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/doAssign
  * @apiVersion 1.0.0
  */
 router.post("/doAssign", async (req, res) => {
@@ -325,7 +325,7 @@ router.post("/doAssign", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/user/toAssign/:id
+ * @apiSampleRequest http://localhost:5000/admin/acl/user/toAssign/:id
  * @apiVersion 1.0.0
  */
 router.get("/toAssign/:id", async (req, res) => {

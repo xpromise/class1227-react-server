@@ -35,7 +35,7 @@ const filter = {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/course/save
+ * @apiSampleRequest http://localhost:5000/admin/edu/course/save
  * @apiVersion 1.0.0
  */
 router.post("/save", async (req, res) => {
@@ -70,7 +70,7 @@ router.post("/save", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/course/publish
+ * @apiSampleRequest http://localhost:5000/admin/edu/course/publish
  * @apiVersion 1.0.0
  */
 router.put("/publish", async (req, res) => {
@@ -116,7 +116,7 @@ router.put("/publish", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/course/update
+ * @apiSampleRequest http://localhost:5000/admin/edu/course/update
  * @apiVersion 1.0.0
  */
 router.put("/update", async (req, res) => {
@@ -159,7 +159,7 @@ router.put("/update", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/course/:page/:limit
+ * @apiSampleRequest http://localhost:5000/admin/edu/course/:page/:limit
  * @apiVersion 1.0.0
  */
 router.get("/:page/:limit", async (req, res) => {
@@ -224,7 +224,7 @@ router.get("/:page/:limit", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/edu/course
+ * @apiSampleRequest http://localhost:5000/admin/edu/course
  * @apiVersion 1.0.0
  */
 router.get("/", async (req, res) => {

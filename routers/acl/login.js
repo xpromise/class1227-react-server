@@ -29,7 +29,7 @@ const router = new Router();
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/index/login
+ * @apiSampleRequest http://localhost:5000/admin/acl/index/login
  * @apiVersion 1.0.0
  */
 router.post("/login", async (req, res) => {
@@ -84,7 +84,7 @@ router.post("/login", async (req, res) => {
  *      "data" : {},
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/index/logout
+ * @apiSampleRequest http://localhost:5000/admin/acl/index/logout
  * @apiVersion 1.0.0
  */
 router.post("/logout", async (req, res) => {
@@ -116,7 +116,7 @@ router.post("/logout", async (req, res) => {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/index/info
+ * @apiSampleRequest http://localhost:5000/admin/acl/index/info
  * @apiVersion 1.0.0
  */
 router.get("/info", async (req, res) => {
@@ -223,7 +223,7 @@ function composeMenus(permissions) {
  *      },
  *      "message": ""
  *  }
- * @apiSampleRequest http://47.103.203.152/admin/acl/index/menu
+ * @apiSampleRequest http://localhost:5000/admin/acl/index/menu
  * @apiVersion 1.0.0
  */
 router.get("/menu", async (req, res) => {

@@ -25,7 +25,7 @@
   },
   "apidoc": {
     "title": "硅谷教育管理系统接口文档",
-    "url": "http://47.103.203.152"
+    "url": "http://localhost:5000"
   },
   "devDependencies": {
     "cross-env": "^7.0.2"
