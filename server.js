@@ -2,8 +2,8 @@
  * @description 主模块
  */
 const express = require("express");
-const morgan = require("morgan");
-const { createWriteStream } = require("fs");
+// const morgan = require("morgan");
+// const { createWriteStream } = require("fs");
 const { resolve } = require("path");
 
 const { SERVER_CONFIG } = require("./config");
@@ -34,30 +34,30 @@ const app = express();
 app.use(express.static(resolve(__dirname, "./public")));
 
 // 记录访问日志
-const accessWriteStream = createWriteStream(
-	resolve(__dirname, "./logs", "access.log"),
-	{ flags: "a" }
-);
-app.use(
-	morgan("combined", {
-		stream: accessWriteStream,
-	})
-);
+// const accessWriteStream = createWriteStream(
+// 	resolve(__dirname, "./logs", "access.log"),
+// 	{ flags: "a" }
+// );
+// app.use(
+// 	morgan("combined", {
+// 		stream: accessWriteStream,
+// 	})
+// );
 
 // 记录错误日志
-const errorWriteStream = createWriteStream(
-	resolve(__dirname, "./logs", "error.log"),
-	{ flags: "a" }
-);
+// const errorWriteStream = createWriteStream(
+// 	resolve(__dirname, "./logs", "error.log"),
+// 	{ flags: "a" }
+// );
 
-app.use(
-	morgan("tiny", {
-		stream: errorWriteStream,
-		skip: function (req, res) {
-			return res.statusCode < 400;
-		},
-	})
-);
+// app.use(
+// 	morgan("tiny", {
+// 		stream: errorWriteStream,
+// 		skip: function (req, res) {
+// 			return res.statusCode < 400;
+// 		},
+// 	})
+// );
 // 内置中间件：用来解析POST请求体参数
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
   res.set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
   res.set("Access-Control-Max-Age", 86400);
 
-  if (method.toLowercase() === "options") {
+  if (method.toLowerCase() === "options") {
     res.end();
     return;
   }
